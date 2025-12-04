@@ -27,6 +27,6 @@ a:hover {
   box-shadow: 0 0 10px #0000001a;
 }
 
-#portfolio-link:hover {
-  color: white;
+.portfolio-link:hover {
+  color: white !important;
 }
