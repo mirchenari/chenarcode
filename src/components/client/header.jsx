@@ -9,13 +9,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import NavLink from "../UI/navlink";
 
-function HeaderSection({ className }) {
+function HeaderSection({ className, isMobile }) {
   return (
     <motion.section
       className={`${className} h-full bg-[#222222] text-white flex-col items-center justify-evenly`}
-      initial={{ opacity: 0, translateX: -300 }}
-      animate={{ opacity: 1, translateX: 0 }}
-      exit={{ opacity: 0, translateX: -100 }}
+      initial={isMobile ? { opacity: 0, translateX: -300 } : null}
+      animate={isMobile ? { opacity: 1, translateX: 0 } : null}
+      exit={isMobile ? { opacity: 0, translateX: -100 } : null}
     >
       <div>
         <h2 className="text-3xl font-extrabold">
@@ -62,11 +62,11 @@ export default function Header() {
       >
         <FontAwesomeIcon icon={faBars} />
       </button>
-      <HeaderSection className="hidden md:flex" />
+      <HeaderSection isMobile={false} className="hidden md:flex" />
       <AnimatePresence>
         {isShow && (
           <>
-            <HeaderSection className="flex md:hidden fixed top-0 left-0 bottom-0 sm:w-[40%] w-[85%] z-20" />
+            <HeaderSection isMobile={true} className="flex md:hidden fixed top-0 left-0 bottom-0 sm:w-[40%] w-[85%] z-20" />
             <motion.div
               className="md:hidden fixed inset-0 bg-[#00000026]"
               initial={{ opacity: 0 }}

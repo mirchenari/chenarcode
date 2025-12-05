@@ -72,8 +72,8 @@ export default function AboutPage() {
               </li>
             </ul>
           </div>
-          <div>
-            <Btn>دانلود رزومه</Btn>
+          <div className="mt-5">
+            <Btn href="/dl/resume.pdf" target="_blank">دانلود رزومه</Btn>
           </div>
         </div>
       </section>
